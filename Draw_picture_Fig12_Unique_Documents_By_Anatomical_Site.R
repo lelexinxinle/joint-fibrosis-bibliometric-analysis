@@ -1,4 +1,4 @@
-setwd("D:\\research\\文献计量学\\关节纤维化_大修")
+setwd("")
 library(dplyr)
 library(ggplot2)
 library(openxlsx)
@@ -14,7 +14,7 @@ if (!all(c("TI", "AB", "DE") %in% names(M))) {
   stop("The data must contain TI, AB, and DE.")
 }
 
-# 每篇文献在同一解剖部位只计数一次；一篇文献可归入多个不同部位。
+
 documents <- M %>%
   transmute(
     Document_ID = row_number(),
@@ -27,8 +27,7 @@ documents <- M %>%
     ))
   )
 
-# 15个独立解剖部位与Table S1一致。
-# interphalangeal只有在hand/finger或foot/toe上下文中才参与分类。
+
 site_patterns <- c(
   "Acromioclavicular Joint" = "\\bacromioclavicular(\\s+joint(s)?)?\\b",
   "Atlanto-Axial Joint" = "\\b(atlanto-axial|atlantoaxial)(\\s+joint(s)?)?\\b",
