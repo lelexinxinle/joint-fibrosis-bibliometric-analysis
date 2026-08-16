@@ -1,9 +1,9 @@
-setwd("D:/research/文献计量学/关节纤维化_大修")
+setwd("")
 library(bibliometrix)
 library(dplyr)
 library(openxlsx)
 
-openalex_api_key <- "iLDn6OajInzcUtMNGp2Ewm"
+openalex_api_key <- ""
 Sys.setenv(
   openalexR.apikey = openalex_api_key,
   openalexR_apikey = openalex_api_key
@@ -44,6 +44,6 @@ author_summary <- authors %>%
 
 write.xlsx(
   author_summary,
-  "Results/Fig5/Most_Relevant_Authors_Disambiguated.xlsx",
+  "Most_Relevant_Authors_Disambiguated.xlsx",
   overwrite = TRUE
 )
