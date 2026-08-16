@@ -1,4 +1,4 @@
-setwd("D:/research/文献计量学/关节纤维化_大修")
+setwd("")
 
 library(dplyr)
 library(stringr)
@@ -11,7 +11,6 @@ if (!all(c("TI", "AB", "DE") %in% names(M))) stop("The data must contain TI, AB,
 output_dir <- "Results/Fig12"
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
-# 每篇文献在同一部位只计一次；一篇文献可以归入多个部位。
 documents <- M %>%
   transmute(
     Document_ID = row_number(),
@@ -64,7 +63,6 @@ site_summary <- tibble(Site = selected_sites) %>%
   ) %>%
   arrange(desc(Unique_publications))
 
-# Table S1中的解剖词用于说明每个大类由哪些小类构成。
 term_patterns <- list(
   "Knee Joint" = c(
     "Knee Joint" = "\\bknee\\s+joint(s)?\\b", "Knee" = "\\bknee\\b",
